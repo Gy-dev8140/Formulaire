@@ -132,7 +132,11 @@ export default function NewRepairOrderPage() {
           <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label>Catégorie *</Label>
-              <Select onValueChange={(val) => form.setValue('device.category', val)}>
+              <Select
+  onValueChange={(val) =>
+    form.setValue('device.category', String(val ?? ''))
+  }
+>
                 <SelectTrigger>
                   <SelectValue placeholder="Sélectionner une catégorie" />
                 </SelectTrigger>
@@ -186,7 +190,7 @@ export default function NewRepairOrderPage() {
 
             <div className="space-y-2">
               <Label>Niveau d'urgence *</Label>
-              <Select onValueChange={(val) => form.setValue('repair.urgency', val)} defaultValue="MOYEN">
+              <Select onValueChange={(val) => form.setValue('repair.urgency', String(val))} defaultValue="MOYEN">
                 <SelectTrigger>
                   <SelectValue placeholder="Sélectionner l'urgence" />
                 </SelectTrigger>
